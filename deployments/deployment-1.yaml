@@ -1,0 +1,25 @@
+#-------------------------------------------------------------
+# Manifest File to create Simple Deployment
+#
+# by Oleksanr Kashuba 2022
+#-------------------------------------------------------------
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  labels:
+    app : my-k8s-application
+spec:
+  selector:
+    matchLabels:
+      project: yolo
+  template:
+    metadata:
+      labels:
+        project: yolo
+    spec:
+      containers:
+        - name : kgb-web
+          image: kapalulz/k8sphp:latest
+          ports:
+            - containerPort: 80

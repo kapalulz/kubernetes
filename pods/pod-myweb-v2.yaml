@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-web
+  labels:
+    env  : prod
+    app  : main
+    tier : frontend
+    owner: Oleksandr_Kashuba
+spec:
+  containers: 
+    - name: containers-apache
+      image: nginx:latest
+      ports:
+        - containerPort: 80

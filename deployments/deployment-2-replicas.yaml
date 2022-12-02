@@ -1,0 +1,27 @@
+#------------------------------------------
+# Manifest File to create Simple Deployment
+#
+# by Oleksandr Kashuba 2022
+#------------------------------------------
+
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: my-web-2-deployment
+  labels:
+    app : my-k8s-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: korosten
+  template:
+    metadata:
+      labels:
+        project: korosten
+    spec:
+      containers:
+        - name : kgb-web
+          image: adv4000/k8sphp:latest
+          ports:
+            - containerPort: 80
